@@ -18,7 +18,7 @@ class MainContainer extends Component {
       .then(data => {
         this.setState({
           stocks: data,
-          renderedStocks: data
+          renderedStocks: data.map(v => ({...v, isActive: true}))
         })
     })
   }
@@ -88,6 +88,7 @@ class MainContainer extends Component {
   }
 
   render() {
+    console.log(this.state.renderedStocks)
     return (
       <div>
         <SearchBar 
